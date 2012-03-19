@@ -9,9 +9,10 @@ end
 # Makes sure that one string (regexp) occurs before or after another one
 #   on the same page
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-  assert page.content.rindex(e1), "'#{e1}' not found in page"
-  assert page.content.rindex(e2), "'#{e2}' not found in page"
-  assert page.content.rindex(e1) < page.body..rindex(e1), "'#{e2}' is shown before '#{e1}'"
+  assert page.body.rindex(e1), "'#{e1}' not found in page"
+  assert page.body.rindex(e2), "'#{e2}' not found in page"
+  assert page.body.rindex(e1) < page.body.rindex(e2), "'#{e2}' is shown before '#{e1}'"
+  
 end
 
 # Makes it easier to express checking or unchecking several boxes at once
