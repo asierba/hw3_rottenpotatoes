@@ -22,8 +22,21 @@ Background: movies have been added to database
   And I am on the RottenPotatoes home page
 
 Scenario: sort movies alphabetically
-  # your steps here
+  When I follow "Movie Title"
+  And I check the following ratings: PG, R, G, PG-13, NC-17
+  And I press "Refresh"
+  Then I should see "2001: A Space Odyssey" before "Aladdin"
+  And I should see "Amelie" before "The Terminator"
+  And I should see "Amelie" before "Chicken Run"
+  And I should see "Chicken Run" before "The Incredibles"
+  And I should see "The Incredibles" before "The Terminator"
 
 Scenario: sort movies in increasing order of release date
-  # your steps here
+  When I follow "Release Date"
+  And I check the following ratings: PG, R, G, PG-13, NC-17
+  And I press "Refresh"
+  Then I should see "2001: A Space Odyssey" before "Raiders of the Lost Ark"
+  And I should see "2001: A Space Odyssey" before "Aladdin"
+  And I should see "2001: A Space Odyssey" before "The Help"
+  And I should see "The Incredibles" before "The Help"
 
